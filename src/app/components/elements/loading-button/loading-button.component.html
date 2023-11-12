@@ -1,0 +1,8 @@
+<button class="btn btn-primary me-10" [disabled]="isloading" id="kt_button_1">
+    <span class="indicator-label" *ngIf="!isloading">
+        Submit
+    </span>
+    <span class="indicator-label" *ngIf="isloading">
+        {{loadingText}} <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+    </span>
+</button>

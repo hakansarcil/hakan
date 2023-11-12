@@ -1,0 +1,99 @@
+<div
+      id="kt_aside"
+      class="aside bg-info"
+      data-kt-drawer="true"
+      data-kt-drawer-name="aside"
+      data-kt-drawer-activate="{default: true, lg: false}"
+      data-kt-drawer-overlay="true"
+      data-kt-drawer-width="{default:'200px', '300px': '250px'}"
+      data-kt-drawer-direction="start"
+      data-kt-drawer-toggle="#kt_aside_toggler"
+    >
+      <!--begin::Secondary-->
+      <div class="aside-secondary d-flex flex-row-fluid bg-white">
+        <!--begin::Workspace-->
+        <div
+          class="aside-workspace my-7 ps-5 pe-4 ps-lg-10 pe-lg-6"
+          id="kt_aside_wordspace"
+        >
+          <!--begin::Logo-->
+          <div class="aside-logo py-2 pb-7" id="kt_aside_logo">
+            <a href="index.html">
+              <img
+                alt="Logo"
+                src="/assets/media/logos/logo-compact.svg"
+                class="mh-50px"
+              />
+            </a>
+          </div>
+          <!--end::Logo-->
+          <!--begin::Aside Menu-->
+          <!--begin::Menu-->
+          <div
+            class="menu menu-column menu-rounded menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-6"
+            data-kt-menu="true"
+          >
+            <div
+              class="hover-scroll-y pe-4 pe-lg-5"
+              id="kt_aside_menu_scroll"
+              data-kt-scroll="true"
+              data-kt-scroll-height="auto"
+              data-kt-scroll-dependencies="#kt_aside_logo"
+              data-kt-scroll-wrappers="#kt_aside_wordspace"
+              data-kt-scroll-offset="10px"
+            >
+              <div class="menu-wrapper menu-column menu-fit">
+                <div class="menu-item">
+                  <h4
+                    class="menu-content text-muted mb-0 fs-6 fw-bold text-uppercase"
+                  >
+                    Getting Started
+                  </h4>
+                </div>
+                <div class="menu-item">
+                  <a
+                    class="menu-link active py-2"
+                    href="documentation/getting-started.html"
+                  >
+                    <span class="menu-title">Overview</span>
+                  </a>
+                </div>
+                <div
+                  data-kt-menu-trigger="click"
+                  class="menu-item menu-accordion"
+                >
+                  <span class="menu-link py-2">
+                    <span class="menu-title">Build</span>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-item">
+                      <a
+                        class="menu-link py-2"
+                        href="documentation/getting-started/build/gulp.html"
+                      >
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Gulp</span>
+                      </a>
+                    </div>
+                    <div class="menu-item">
+                      <a
+                        class="menu-link py-2"
+                        href="documentation/getting-started/build/webpack.html"
+                      >
+                        <span class="menu-bullet">
+                          <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Webpack</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

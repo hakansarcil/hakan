@@ -1,0 +1,175 @@
+<!--begin::toolbar-->
+<div class="toolbar" id="kt_toolbar">
+  <div class="container d-flex flex-stack flex-wrap flex-sm-nowrap">
+    <!--begin::Info-->
+    <div
+      class="d-flex flex-column align-items-start justify-content-center flex-wrap me-1"
+    >
+      <!--begin::Title-->
+      <h3 class="text-dark fw-bolder my-1">
+        Overview <small class="text-muted fs-7 fw-bold ms-1"></small>
+      </h3>
+      <!--end::Title-->
+    </div>
+    <!--end::Info-->
+  </div>
+</div>
+<!--end::toolbar-->
+<!--begin::Content-->
+<div class="content fs-6 d-flex flex-column-fluid" id="kt_content">
+  <!--begin::Container-->
+  <div class="container">
+    <div class="card shadow-sm">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Title</h3>
+          <div class="card-toolbar">
+            <button type="button" class="btn btn-sm btn-light">Action</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group mb-10">
+                  <label>Name</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    [ngClass]="submitted && name?.invalid ? 'is-invalid' : ''"
+                    formControlName="name"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="form-group mb-10">
+                  <label>Surname</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    [ngClass]="
+                      submitted && surname?.invalid ? 'is-invalid' : ''
+                    "
+                    formControlName="surname"
+                    placeholder="Surname"
+                  />
+                </div>
+                <div class="form-group mb-10">
+                  <label for="select2"></label>
+                  <select
+                    class="form-select js-example-basic-single"
+                    formControlName="select"
+                    id="select"
+                    data-control="select2"
+                    data-placeholder="Select an option"
+                  >
+                    <option></option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                  </select>
+                </div>
+                <div class="form-group mb-10">
+                  <label>Birth Date</label>
+                  <app-datetime-picker
+                    name="birthDate"
+                    formControlName="birthDate"
+                  ></app-datetime-picker>
+                </div>
+                <div class="form-group mb-10">
+                  <label>Frst Date</label>
+                  <input id="kt_datepicker_12" type="text" formControlName="firstDate" class="form-control form-control-solid kt_datepicker_12"  placeholder="Pick date & time"/>
+                </div>
+                <div class="form-group mb-10">
+                  <label>Email</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-solid"
+                    formControlName="email"
+                    placeholder="name@example.com"
+                  />
+                </div>
+
+                <div class="form-group mb-10">
+                  <label class="form-check form-check-custom form-check-solid">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      name="isAdmin"
+                      formControlName="isAdmin"
+                    />
+                    <span class="form-check-label"> Without id linking </span>
+                  </label>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    class="btn btn-danger mb-10"
+                    (click)="addAddress()"
+                  >
+                    +
+                  </button>
+                </div>
+
+                <div formArrayName="adress" class="mb-10">
+                  <h3>Adresses</h3>
+                  <div
+                    *ngFor="let address of addressList.controls; let i = index"
+                  >
+                    <div [formGroupName]="i" class="row mb-10">
+                      <div class="col-sm-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="city"
+                          formControlName="city"
+                          [ngClass]="
+                            submitted && city(i)?.invalid ? 'is-invalid' : ''
+                          "
+                        />
+                      </div>
+                      <div class="col-sm-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="street"
+                          formControlName="street"
+                          [ngClass]="
+                            submitted && street(i)?.invalid ? 'is-invalid' : ''
+                          "
+                        />
+                      </div>
+                      <div class="col-sm-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="postal Code"
+                          formControlName="postalCode"
+                          [ngClass]="
+                            submitted && postalCode(i)?.invalid
+                              ? 'is-invalid'
+                              : ''
+                          "
+                        />
+                      </div>
+                      <div class="col-sm-2">
+                        <button
+                          class="btn btn-danger"
+                          type="button"
+                          (click)="onRemove(i)"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Post</button>
+          </form>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<!--begin::toolbar-->
+<div class="toolbar" id="kt_toolbar">
+  <div class="container d-flex flex-stack flex-wrap flex-sm-nowrap">
+    <!--begin::Info-->
+    <div
+      class="d-flex flex-column align-items-start justify-content-center flex-wrap me-1"
+    >
+      <!--begin::Title-->
+      <h3 class="text-dark fw-bolder my-1">
+        Overview <small class="text-muted fs-7 fw-bold ms-1"></small>
+      </h3>
+      <!--end::Title-->
+    </div>
+    <!--end::Info-->
+  </div>
+</div>
+<!--end::toolbar-->
+<!--begin::Content-->
+<div class="content fs-6 d-flex flex-column-fluid" id="kt_content">
+  <!--begin::Container-->
+  <div class="container">
+    <!--begin::Card-->
+
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <h3 class="card-title">Title</h3>
+        <div class="card-toolbar">
+          <button type="button" class="btn btn-sm btn-light">Action</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <form #loginform="ngForm" (ngSubmit)="setLoading(loginform)">
+          <div class="row">
+            <div class="col-sm-4 mb-10">
+              <input
+                class="form-control form-control-solid kt_datepicker_7"
+                placeholder="Pick date & time"
+                #datepicker
+                ngModel
+                name="datepicker"
+              />
+            </div>
+            <div class="col-sm-4 mb-10">
+              <input
+                class="form-control form-control-solid"
+                placeholder="Pick date & time"
+                id="kt_datepicker_3"
+              />
+            </div>
+            <div class="col-sm-4 mb-10">
+              <select
+                class="form-select form-select-solid"
+                data-control="select2"
+                id="selecter2"
+                data-placeholder="Select an option"
+                data-allow-clear="true"
+              >
+                <option></option>
+                <option value="1">Option 1</option>
+                <option value="2" selected>Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-10">
+              <button (click)="generatePdf()" type="button">Export Pdf</button>
+              <app-data-grid [dataGridList]="dataGridList" (dataItems)="GetData($event)"></app-data-grid>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <app-loading-button
+          type="submit"
+          [isloading]="isLoading"
+          loadingText="Please wait..."
+        ></app-loading-button>
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Content-->
